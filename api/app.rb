@@ -61,13 +61,13 @@ end
 # get the list of low stock models in stores
 get '/low_stock' do
   stock = @redis.smembers LOW_STOCK
-  json format_stocks(stock) 
+  json format_stocks(stock)
 end
 
-# get the list of low stock models in stores
+# get the list of high stock models in stores
 get '/high_stock' do
-  stock = @redis.smembers LOW_STOCK
-  json format_stocks(stock) 
+  stock = @redis.smembers HIGH_STOCK
+  json format_stocks(stock)
 end
 
 ## Helper methods
