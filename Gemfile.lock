@@ -1,0 +1,25 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    connection_pool (2.3.0)
+    eventmachine (1.2.7)
+    faye-websocket (0.11.1)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
+    redis (5.0.5)
+      redis-client (>= 0.9.0)
+    redis-client (0.11.0)
+      connection_pool
+    websocket-driver (0.7.5)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.5)
+
+PLATFORMS
+  x86_64-darwin-21
+
+DEPENDENCIES
+  faye-websocket (~> 0.11.1)
+  redis (~> 5.0)
+
+BUNDLED WITH
+   2.3.25
