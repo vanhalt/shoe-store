@@ -3,6 +3,7 @@ require 'sinatra/json'
 require 'redis'
 
 STORES = :store_names
+MODELS = :models
 LOW_STOCK = :low_stock
 HIGH_STOCK = :high_stock
 
@@ -15,6 +16,11 @@ end
 # get the list of available stores
 get '/stores' do
   json @redis.smembers STORES 
+end
+
+# get the list of available models
+get '/models' do
+  json @redis.smembers MODELS
 end
 
 # get models from a store

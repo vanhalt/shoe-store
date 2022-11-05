@@ -15,6 +15,7 @@ class StockEmitter
   def emit!(hsh)
     save_stock(hsh)
     save_store(hsh[:store])
+    save_model(hsh[:model])
     publish_stock(hsh)
 
     hsh
@@ -34,6 +35,11 @@ class StockEmitter
       name = formatted_store_name(store_name)
 
       @redis.sadd :store_names, name
+    end
+
+    # Adds the model name into a redis SET so we can have a list of the available models
+    def save_model(model)
+      @redis.sadd :models, model
     end
 
     # Publishes stock updates about a store:model to a redis CHANNEL
