@@ -1,17 +1,56 @@
 # Implementation
 
+## requirements
+
+- Docker
+- Docker compose
+
+## Versions
+
+- nodejs: v18.12.0
+- ruby: 3.1.1
+
+## Starting the project
+
+```bash
+bundle install
+docker-compose up # runs services
+bundle exec foreman start # runs consumers/producers scripts
+```
+
+Later check the `api` and `web-dashboard` section
+
 ## api
 Sinatra based application with the following endpoints:
 
 - '/stores'
+- '/models'
 - '/stores/:store'
 - '/stores/:store/models/:model'
 - '/inventory'
 - '/low_stock'
 - '/high_stock'
 
+To run it:
+
+```bash
+cd api
+bundle install
+
+bundle exec ruby app.rb
+```
+
 ## web-dashboard
 React application that showcases a small dashboard with the inventory. It refreshes itself.
+
+To run it:
+
+```bash
+nvm use # if you're using nvm
+cd web-dashboard
+npm install
+npm start # requires de API to be runnning
+```
 
 ## ws-consumer.rb
 Consumes data from the WebSocket and emits information to Redis using the class `StockEmitter`
@@ -28,6 +67,7 @@ Checks for the shoe models that need to be removed from the high/low sets
 - The `Gemfile` contains:
 "faye-websocket"
 "redis"
+"foreman"
 
 
 #### issues
