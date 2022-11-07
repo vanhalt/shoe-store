@@ -55,7 +55,7 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel 'Model presence in amount of stores' do
           ul do
-            Transaction.select('model, COUNT(store) amount_of_stores').group(:model).order(amount_of_stores: :desc).map do |shoe_model|
+            Transaction.select('model, COUNT(DISTINCT(store)) amount_of_stores').group(:model).order(amount_of_stores: :desc).map do |shoe_model|
               li "#{shoe_model.model} is in #{shoe_model.amount_of_stores} stores"
             end
           end
