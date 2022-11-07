@@ -1,4 +1,5 @@
 # Implementation
+![Shoe Store Diagram](./show_store.png)
 
 ## requirements
 
@@ -18,7 +19,7 @@ docker-compose up # runs services
 bundle exec foreman start # runs consumers/producers scripts
 ```
 
-Later check the `api` and `web-dashboard` section
+Later check the `api`, `analytics` and `web-dashboard` sections
 
 ## api
 Sinatra based application with the following endpoints:
@@ -52,8 +53,21 @@ npm install
 npm start # requires de API to be runnning
 ```
 
+## Analytics
+
+Rails app with ActiveAdmin dashboard showing some analytics...
+
+```bash
+cd analytics
+bundle install
+bundle exec rails db:setup
+bundle exec rails s # requires de postgresql DB to be runnning
+```
+
 ## ws-consumer.rb
 Consumes data from the WebSocket and emits information to Redis using the class `StockEmitter`
+## ws-consumer2.rb
+Consumes data from the WebSocket and emits information to the `/transactions` endpoint of the Analytics service
 
 ## stock_alerts_subscriber.rb
 Maintains a set of high/low stock shoe models
@@ -63,11 +77,12 @@ Checks for the shoe models that need to be removed from the high/low sets
 
 ### Notes
 
-- The `docker-compose` file contains a redis service
+- The `docker-compose` file contains a redis and postgresql
 - The `Gemfile` contains:
 "faye-websocket"
 "redis"
 "foreman"
+"faraday'
 
 
 #### issues

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store: MyString
+  model: MyString
+  inventory: 1
+
+two:
+  store: MyString
+  model: MyString
+  inventory: 1

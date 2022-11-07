@@ -4,3 +4,12 @@ services:
     image: "redis:alpine"
     ports:
     - 6379:6379
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: analytics
+      POSTGRES_PASSWORD: analytics
+    ports:
+    - 5433:5432
