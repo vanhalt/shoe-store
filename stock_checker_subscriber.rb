@@ -8,7 +8,7 @@ require 'redis'
 
 @redis = Redis.new
 
-# adds store:model to redis SET for low stock
+# removes store:model from redis SETs
 def remove_from_alert_stocks!(store, model)
   @redis.srem 'low_stock', "#{store}:#{model}"
   @redis.srem 'high_stock', "#{store}:#{model}"
