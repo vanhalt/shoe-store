@@ -1,5 +1,5 @@
 # Implementation
-![Shoe Store Diagram](./show_store.png)
+![Shoe Store Diagram](https://github.com/vanhalt/shoe-store/blob/solution/shoe_store.png)
 
 ## requirements
 
